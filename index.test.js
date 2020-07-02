@@ -5,6 +5,5 @@ test('Should change button text ', () => {
     require('./index.js');
     const button = document.querySelector(".button-test");
     button.click();
-    expect(button.textContent).toBe("this is a test");
-    expect(console.log).toBeCalled();
+    expect(button.textContent).toBe("clicado");
 })
