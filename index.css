@@ -4,7 +4,7 @@ body {
 
 button {
   border-radius: 5px;
-  border: 1px solid #C3C3C3;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 button:focus {
@@ -39,6 +39,7 @@ button:focus {
 @media (max-width: 760px) {
   .logo {
     width: 150px;
-    height: 150px;
+    height: 140px;
+    margin-bottom: 0px;
   }
 }

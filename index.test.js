@@ -2,7 +2,7 @@ console.log = jest.fn();
 
 describe("Should change button Properties", () => {
   beforeAll(() => {
-    document.body.innerHTML = '<button class="button-test">Contact-Us</button>';
+    document.body.innerHTML = '<button class="button-test">Contact-us</button>';
     require('./index.js');
   });
 
