@@ -7,7 +7,7 @@
     "test": "jest",
     "cy:open": "cypress open",
     "cy:run": "cypress run --headless",
-    "server": "http-server -o"
+    "server": "http-server -o --port 4000"
   },
   "author": "",
   "license": "ISC",
