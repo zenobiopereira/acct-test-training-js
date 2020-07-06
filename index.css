@@ -1,0 +1,44 @@
+body {
+  background-color: #B4B5B0 ;
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid #C3C3C3;
+}
+
+button:focus {
+  outline: none;
+}
+
+.logo {
+  width: 235px;
+  height: 235px;
+  margin-bottom: 5px;
+}
+
+.container {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-test,
+.button-clicked {
+  width: 250px;
+  height: 30px;
+}
+
+.button-clicked {
+  background-color: mediumpurple;
+}
+
+@media (max-width: 760px) {
+  .logo {
+    width: 150px;
+    height: 150px;
+  }
+}
