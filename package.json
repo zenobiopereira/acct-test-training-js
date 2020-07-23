@@ -4,15 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "server": "http-server -o"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^4.9.0",
     "jest": "^26.1.0"
   }
 }

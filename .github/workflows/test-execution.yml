@@ -28,9 +28,3 @@ jobs:
 
     - name: Run tests on github
       run: npm run test -- index.test.js
-
-    - name: Run integration tests on github
-      uses: cypress-io/github-action@v2
-      with:
-        start: npx http-server --port 4000
-
