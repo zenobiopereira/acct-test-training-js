@@ -7,7 +7,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [12.x]
@@ -16,13 +16,24 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      
+    - uses: actions/checkout@v1
+
     - name: Install Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
     - name: Install dependencies
       run: npm install
-      
+
     - name: Run tests on github
-      run: npm run test
+      run: npm run test -- index.test.js
+
+    - name: Run integration tests on github
+      uses: cypress-io/github-action@v2
+      with:
+        start: npx http-server --port 4000
+        env: true
+      env:
+        CYPRESS_TOKEN: "admin"
+
