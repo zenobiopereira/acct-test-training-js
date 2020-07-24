@@ -1,2 +1,8 @@
 node_modules
 coverage
+cypress/integration/examples
+coverage
+cypress/integration/examples
+cypress/plugins
+cypress/support
+cypress/fixtures
