@@ -33,4 +33,7 @@ jobs:
       uses: cypress-io/github-action@v2
       with:
         start: npx http-server --port 4000
+        env: true
+      env:
+        CYPRESS_TOKEN: "admin"
 

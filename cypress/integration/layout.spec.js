@@ -6,24 +6,24 @@
 
 const sizesMediaQuery = [
   "iphone-3",
-  // 'iphone-4',
-  // 'iphone-5',
-  // 'iphone-6',
-  // 'iphone-6+',
-  // 'iphone-x',
-  // 'iphone-xr',
-  // 'iphone-x',
-  // 'samsung-note9',
-  // 'samsung-s10'
+  "iphone-4",
+  "iphone-5",
+  "iphone-6",
+  "iphone-6+",
+  "iphone-x",
+  "iphone-xr",
+  "iphone-x",
+  "samsung-note9",
+  "samsung-s10",
 ];
 
 const sizes = [
-  // 'ipad-2',
-  // 'ipad-mini',
-  // 'macbook-11',
-  // 'macbook-13',
-  // 'macbook-15',
-  // [1024, 768],
+  "ipad-2",
+  "ipad-mini",
+  "macbook-11",
+  "macbook-13",
+  "macbook-15",
+  [1024, 768],
   [1920, 1080],
 ];
 
@@ -38,20 +38,38 @@ describe("Button in multiple views", () => {
         cy.viewport(size);
         cy.wait(200);
         cy.get(".button-login").should("have.css", "width", "150px");
-        cy.get(".logo").should("have.css", "width", "150px");
-        cy.get(".logo").should("have.css", "height", "140px");
+        cy.get("[data-cy=authentication-input]").should(
+          "have.css",
+          "width",
+          "150px"
+        );
+        cy.get(".logo")
+          .should("have.css", "width", "150px")
+          .and("have.css", "height", "140px");
       });
     });
   });
 
   context("Screens with max width of 960px and orientation landscape", () => {
     sizesMediaQuery.forEach((size) => {
-      it(`Should have 150px in ${size} screen`, () => {
+      it(`Should have 250px in ${size} screen`, () => {
         cy.viewport(size, "landscape");
         cy.wait(200);
-        cy.get(".button-login").should("have.css", "width", "250px");
-        cy.get(".logo").should("have.css", "width", "150px");
-        cy.get(".logo").should("have.css", "height", "140px");
+
+        // Conditional testing...
+        ["iphone-3", "iphone-4"].includes(size)
+          ? (cy.get(".button-login").should("have.css", "width", "150px"),
+            cy
+              .get("[data-cy=authentication-input]")
+              .should("have.css", "width", "150px"))
+          : (cy.get(".button-login").should("have.css", "width", "250px"),
+            cy
+              .get("[data-cy=authentication-input]")
+              .should("have.css", "width", "250px"));
+
+        cy.get(".logo")
+          .should("have.css", "width", "150px")
+          .and("have.css", "height", "140px");
       });
     });
   });
@@ -66,8 +84,14 @@ describe("Button in multiple views", () => {
         }
 
         cy.get(".button-login").should("have.css", "width", "250px");
-        cy.get(".logo").should("have.css", "width", "235px");
-        cy.get(".logo").should("have.css", "height", "235px");
+        cy.get("[data-cy=authentication-input]").should(
+          "have.css",
+          "width",
+          "250px"
+        );
+        cy.get(".logo")
+          .should("have.css", "width", "235px")
+          .and("have.css", "height", "235px");
       });
     });
   });
